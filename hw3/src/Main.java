@@ -9,7 +9,11 @@ public class Main {
                 account.withdraw(6000);
             } catch (LimitException e) {
                 System.out.println(e.getMessage());
-                account.withdraw(e.getRemainedAmount());
+                try {
+                    account.withdraw(e.getRemainedAmount());
+                } catch (LimitException ex) {
+                    System.out.println(ex.getMessage());
+                }
                 break;
             }
         }

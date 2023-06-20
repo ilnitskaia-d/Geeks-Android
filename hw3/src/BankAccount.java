@@ -9,8 +9,8 @@ public class BankAccount {
         amount += sum;
     }
 
-    public void withdraw (double sum) {
-        if (sum > amount){
+    public void withdraw (double sum) throws LimitException {
+        if (sum > amount) {
             throw new LimitException("The sum exceeds the limit. The remained amount possible to withdraw is " + getAmount(), getAmount());
         }
         amount -= sum;
